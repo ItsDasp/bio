@@ -1,7 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
 import { useMusic } from '@/contexts/MusicContext';
-import { useLanguage } from '@/hooks/useLanguage';
 import Image from 'next/image';
 import { Play, Pause, SkipBack, SkipForward, X, Minimize2, Volume2 } from 'lucide-react';
 export function GlobalMiniPlayer() {
@@ -20,7 +19,6 @@ export function GlobalMiniPlayer() {
     setVolume,
     setShowMiniPlayer 
   } = useMusic();
-  const { t } = useLanguage();
   const [isMinimized, setIsMinimized] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 20, y: 20 });
@@ -65,7 +63,7 @@ export function GlobalMiniPlayer() {
     seekTo(newTime);
   };
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = parseFloat(e.target.value);
+    const newVolume = Number(e.target.value);
     setVolume(newVolume);
   };
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -215,8 +213,8 @@ export function GlobalMiniPlayer() {
                 <input
                   type="range"
                   min="0"
-                  max="1"
-                  step="0.1"
+                  max="100"
+                  step="1"
                   value={volume}
                   onChange={handleVolumeChange}
                   onClick={(e) => e.stopPropagation()}

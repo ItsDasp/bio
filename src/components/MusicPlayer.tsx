@@ -1,4 +1,5 @@
 'use client';
+
 import { useState, useEffect } from 'react';
 import { useMusic } from '@/contexts/MusicContext';
 import { useLanguage } from '@/hooks/useLanguage';
@@ -6,6 +7,7 @@ import { useIdleTimer } from '@/hooks/useIdleTimer';
 import { MusicScreensaver } from './MusicScreensaver';
 import Image from 'next/image';
 import { Play, Pause, SkipBack, SkipForward, Expand, Volume2, VolumeX } from 'lucide-react';
+
 interface Song {
   id: string;
   title: string;
@@ -17,9 +19,11 @@ interface Song {
   color: string;
   realDuration?: number;
 }
+
 interface MusicPlayerProps {
   songs: Song[];
 }
+
 export function MusicPlayer({ songs }: MusicPlayerProps) {
   const { t } = useLanguage();
   const { 
@@ -37,21 +41,27 @@ export function MusicPlayer({ songs }: MusicPlayerProps) {
     setVolume,
     playSong
   } = useMusic();
+
   const [isExpanded, setIsExpanded] = useState(false);
   const [forceScreensaver, setForceScreensaver] = useState(false);
+
   useEffect(() => {
     if (songs.length > 0) {
       initializeSongs(songs);
     }
   }, [songs, initializeSongs]);
+
   const { isIdle, resetTimer } = useIdleTimer(30000);
+
   const showScreensaver = (isIdle || forceScreensaver) && isPlaying && contextSongs.length > 0;
+
   const formatTime = (time: number) => {
     if (isNaN(time)) return '0:00';
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
+
   const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!duration) return;
     const rect = e.currentTarget.getBoundingClientRect();
@@ -60,40 +70,50 @@ export function MusicPlayer({ songs }: MusicPlayerProps) {
     seekTo(newTime);
     resetTimer();
   };
+
   const handleVolumeChange = (e: React.MouseEvent<HTMLDivElement>) => {
     resetTimer();
     const rect = e.currentTarget.getBoundingClientRect();
     const clickX = e.clientX - rect.left;
-    const newVolume = Math.max(0, Math.min(1, clickX / rect.width));
+    const newVolume = Math.max(0, Math.min(100, (clickX / rect.width) * 100));
     setVolume(newVolume);
   };
+
   const handleSongSelect = (index: number) => {
     playSong(index);
     resetTimer();
   };
+
   const handlePrevious = () => {
     previousSong();
     resetTimer();
   };
+
   const handleNext = () => {
     nextSong();
     resetTimer();
   };
+
   const handlePlayPause = () => {
     playPause();
     resetTimer();
   };
+
   const forceShowScreensaver = () => {
     setIsExpanded(false);
     setForceScreensaver(true);
   };
+
   const closeScreensaver = () => {
     resetTimer();
     setForceScreensaver(false);
   };
+
   if (contextSongs.length === 0) return null;
+
   const currentSongData = contextSongs[currentSong];
   if (!currentSongData) return null;
+
   if (showScreensaver) {
     return (
       <MusicScreensaver
@@ -101,18 +121,18 @@ export function MusicPlayer({ songs }: MusicPlayerProps) {
         isPlaying={isPlaying}
         currentTime={currentTime}
         duration={duration}
-        onClose={closeScreensaver}
-        onPlayPause={handlePlayPause}
+        onTogglePlay={handlePlayPause}
         onPrevious={handlePrevious}
         onNext={handleNext}
-        onProgressClick={handleProgressClick}
+        onSeek={seekTo}
+        onClose={closeScreensaver}
         formatTime={formatTime}
       />
     );
   }
+
   return (
     <div className="space-y-4">
-      {}
       <div 
         className="backdrop-blur-2xl bg-white/5 border border-white/10 rounded-2xl p-4 cursor-pointer transition-all duration-300 hover:bg-white/10"
         onClick={() => setIsExpanded(!isExpanded)}
@@ -130,7 +150,6 @@ export function MusicPlayer({ songs }: MusicPlayerProps) {
             </div>
           </div>
           <div className="flex items-center gap-2">
-            {}
             {!isExpanded && (
               <button
                 onClick={(e) => {
@@ -154,10 +173,9 @@ export function MusicPlayer({ songs }: MusicPlayerProps) {
           </div>
         </div>
       </div>
-      {}
+
       {isExpanded && (
         <div className="backdrop-blur-2xl bg-white/10 border border-white/20 rounded-2xl p-6 space-y-6 animate-slide-up">
-          {}
           <div 
             className="relative overflow-hidden rounded-2xl p-6 text-center"
             style={{
@@ -165,9 +183,8 @@ export function MusicPlayer({ songs }: MusicPlayerProps) {
             }}
           >
             <div className="space-y-4">
-              {}
               <div className="w-24 h-24 mx-auto rounded-2xl overflow-hidden relative">
-                {currentSongData.cover && (
+                {currentSongData.cover ? (
                   <Image
                     src={currentSongData.cover}
                     alt={`${currentSongData.title} cover`}
@@ -175,6 +192,13 @@ export function MusicPlayer({ songs }: MusicPlayerProps) {
                     height={96}
                     className="w-full h-full object-cover"
                   />
+                ) : (
+                  <div 
+                    className="w-full h-full flex items-center justify-center text-xs text-white"
+                    style={{ background: currentSongData.color }}
+                  >
+                    🎵
+                  </div>
                 )}
                 <div 
                   className={`w-full h-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center ${currentSongData.cover ? 'absolute inset-0 -z-10' : ''}`}
@@ -185,12 +209,12 @@ export function MusicPlayer({ songs }: MusicPlayerProps) {
                   <span className="text-white text-3xl">🎵</span>
                 </div>
               </div>
-              {}
+
               <div>
                 <h4 className="text-white font-bold text-xl mb-1">{currentSongData.title}</h4>
                 <p className="text-white/80 text-lg">{currentSongData.artist}</p>
               </div>
-              {}
+
               <div className="space-y-2">
                 <div 
                   className="w-full h-2 bg-white/20 rounded-full cursor-pointer overflow-hidden"
@@ -209,9 +233,8 @@ export function MusicPlayer({ songs }: MusicPlayerProps) {
                   <span>{formatTime(duration)}</span>
                 </div>
               </div>
-              {}
+
               <div className="flex items-center justify-center gap-4">
-                {}
                 <button
                   onClick={forceShowScreensaver}
                   className="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-xl flex items-center justify-center transition-all hover:scale-105"
@@ -219,12 +242,14 @@ export function MusicPlayer({ songs }: MusicPlayerProps) {
                 >
                   <Expand className="w-4 h-4 text-white" />
                 </button>
+
                 <button
                   onClick={handlePrevious}
                   className="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-xl flex items-center justify-center transition-all"
                 >
                   <SkipBack className="w-4 h-4 text-white" />
                 </button>
+
                 <button
                   onClick={handlePlayPause}
                   className="w-12 h-12 bg-white/30 hover:bg-white/40 rounded-xl flex items-center justify-center transition-all hover:scale-105"
@@ -235,16 +260,17 @@ export function MusicPlayer({ songs }: MusicPlayerProps) {
                     <Play className="w-6 h-6 text-white" />
                   )}
                 </button>
+
                 <button
                   onClick={handleNext}
                   className="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-xl flex items-center justify-center transition-all"
                 >
                   <SkipForward className="w-4 h-4 text-white" />
                 </button>
-                {}
+
                 <div className="flex items-center gap-2">
                   <button
-                    onClick={() => setVolume(volume > 0 ? 0 : 0.7)}
+                    onClick={() => setVolume(volume > 0 ? 0 : 70)}
                     className="w-8 h-8 bg-white/20 hover:bg-white/30 rounded-lg flex items-center justify-center transition-all"
                   >
                     {volume > 0 ? (
@@ -253,20 +279,21 @@ export function MusicPlayer({ songs }: MusicPlayerProps) {
                       <VolumeX className="w-4 h-4 text-white" />
                     )}
                   </button>
+
                   <div 
                     className="w-16 h-2 bg-white/20 rounded-full cursor-pointer"
                     onClick={handleVolumeChange}
                   >
                     <div 
                       className="h-full bg-white rounded-full transition-all"
-                      style={{ width: `${volume * 100}%` }}
+                      style={{ width: `${volume}%` }}
                     />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {}
+
           <div className="space-y-2">
             <h4 className="text-white/80 font-medium text-sm mb-3">Playlist</h4>
             <div className="max-h-40 overflow-y-auto space-y-1">

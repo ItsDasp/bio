@@ -3,6 +3,7 @@ import { useMusic } from '@/contexts/MusicContext';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Play, Pause, SkipBack, SkipForward, VolumeX, Volume1 } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 
 interface MusicScreensaverProps {
   song: {
@@ -77,9 +78,11 @@ export function MusicScreensaver({
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative mb-8">
-          <img
+          <Image
             src={song.cover}
             alt={song.title}
+            width={320}
+            height={320}
             className="w-80 h-80 mx-auto rounded-2xl shadow-2xl object-cover"
             style={{ 
               boxShadow: `0 25px 50px -12px ${song.color}40` 

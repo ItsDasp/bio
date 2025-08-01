@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { EmbedData } from '@/types';
-import { Copy, ExternalLink, Eye } from 'lucide-react';
+import { Copy, ExternalLink } from 'lucide-react';
 import AdaptiveBackground from './AdaptiveBackground';
 import Image from 'next/image';
 

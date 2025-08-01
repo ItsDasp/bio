@@ -1,6 +1,7 @@
 'use client';
 import { createContext, useContext, useState, useRef, useEffect, useCallback, ReactNode } from 'react';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
+
 interface Song {
   id: string;
   title: string;
@@ -12,6 +13,7 @@ interface Song {
   color: string;
   realDuration?: number;
 }
+
 interface MusicContextType {
   songs: Song[];
   currentSong: number;
@@ -29,19 +31,23 @@ interface MusicContextType {
   showMiniPlayer: boolean;
   setShowMiniPlayer: (show: boolean) => void;
   initializeSongs: (songList: Song[]) => void;
+  togglePlayPause: () => void;
 }
+
 const MusicContext = createContext<MusicContextType | undefined>(undefined);
+
 export function MusicProvider({ children }: { children: ReactNode }) {
   const [songs, setSongs] = useState<Song[]>([]);
   const [currentSong, setCurrentSong] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolumeState] = useState(1);
+  const [volume, setVolumeState] = useState(70);
   const [isLoading, setIsLoading] = useState(false);
   const [showMiniPlayer, setShowMiniPlayer] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const progressInterval = useRef<NodeJS.Timeout | null>(null);
+
   useDocumentTitle({
     isPlaying,
     currentSong: songs[currentSong] || null,
@@ -68,10 +74,19 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     }
   }, [songs.length, currentSong, playSong, isPlaying]);
 
+  const previousSong = useCallback(() => {
+    if (songs.length === 0) return;
+    const prevIndex = currentSong === 0 ? songs.length - 1 : currentSong - 1;
+    playSong(prevIndex);
+    if (isPlaying && audioRef.current) {
+      audioRef.current.play().catch(console.error);
+    }
+  }, [songs.length, currentSong, playSong, isPlaying]);
+
   useEffect(() => {
     if (songs.length > 0 && !audioRef.current) {
       audioRef.current = new Audio();
-      audioRef.current.volume = volume;
+      audioRef.current.volume = volume / 100;
       audioRef.current.addEventListener('loadstart', () => setIsLoading(true));
       audioRef.current.addEventListener('canplay', () => setIsLoading(false));
       audioRef.current.addEventListener('ended', nextSong);
@@ -87,6 +102,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
       });
     }
   }, [songs, nextSong, volume]);
+
   useEffect(() => {
     const interval = progressInterval.current;
     return () => {
@@ -95,44 +111,47 @@ export function MusicProvider({ children }: { children: ReactNode }) {
       }
     };
   }, []);
+
   const initializeSongs = (songList: Song[]) => {
     setSongs(songList);
   };
+
   const playPause = () => {
     if (!audioRef.current || songs.length === 0) return;
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      if (audioRef.current.src !== songs[currentSong].file) {
-        audioRef.current.src = songs[currentSong].file;
+      const currentSrc = audioRef.current.src;
+      const expectedSrc = songs[currentSong].file;
+      
+      if (!currentSrc || !currentSrc.endsWith(expectedSrc.split('/').pop() || '')) {
+        audioRef.current.src = expectedSrc;
       }
+      
       audioRef.current.play().catch(console.error);
       setIsPlaying(true);
       setShowMiniPlayer(true);
     }
   };
 
-  const previousSong = () => {
-    if (songs.length === 0) return;
-    const prevIndex = currentSong === 0 ? songs.length - 1 : currentSong - 1;
-    playSong(prevIndex);
-    if (isPlaying && audioRef.current) {
-      audioRef.current.play().catch(console.error);
-    }
-  };
+  const togglePlayPause = playPause;
+
   const seekTo = (time: number) => {
     if (audioRef.current) {
       audioRef.current.currentTime = time;
       setCurrentTime(time);
     }
   };
+
   const setVolume = (newVolume: number) => {
-    setVolumeState(newVolume);
+    const clampedVolume = Math.max(0, Math.min(100, newVolume));
+    setVolumeState(clampedVolume);
     if (audioRef.current) {
-      audioRef.current.volume = newVolume;
+      audioRef.current.volume = clampedVolume / 100;
     }
   };
+
   const value: MusicContextType = {
     songs,
     currentSong,
@@ -150,13 +169,16 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     showMiniPlayer,
     setShowMiniPlayer,
     initializeSongs,
+    togglePlayPause,
   };
+
   return (
     <MusicContext.Provider value={value}>
       {children}
     </MusicContext.Provider>
   );
 }
+
 export function useMusic() {
   const context = useContext(MusicContext);
   if (context === undefined) {

@@ -1,7 +1,7 @@
 'use client';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useMusic } from '@/contexts/MusicContext';
-import { X, Play, Pause, SkipBack, SkipForward, VolumeX, Minimize } from 'lucide-react';
+import { X, Play, Pause, SkipBack, SkipForward, VolumeX, Volume1, Minimize } from 'lucide-react';
 import Image from 'next/image';
 
 export function FloatingMiniPlayer() {
@@ -11,6 +11,7 @@ export function FloatingMiniPlayer() {
     isPlaying, 
     currentTime, 
     duration, 
+    volume,
     togglePlayPause, 
     nextSong, 
     previousSong,
@@ -37,6 +38,31 @@ export function FloatingMiniPlayer() {
       });
     }
   };
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (isDragging) {
+        setPosition({
+          x: e.clientX - dragOffset.x,
+          y: e.clientY - dragOffset.y
+        });
+      }
+    };
+
+    const handleMouseUp = () => {
+      setIsDragging(false);
+    };
+
+    if (isDragging) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, [isDragging, dragOffset]);
 
   if (!songs[currentSong]) return null;
 
@@ -141,6 +167,31 @@ export function FloatingMiniPlayer() {
               >
                 <SkipForward className="w-4 h-4" />
               </button>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setVolume(volume === 0 ? 70 : 0)}
+                className="p-1 rounded bg-white/10 hover:bg-white/20 transition-colors text-white"
+              >
+                {volume === 0 ? <VolumeX className="w-3 h-3" /> : <Volume1 className="w-3 h-3" />}
+              </button>
+              
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={volume}
+                onChange={handleVolumeChange}
+                className="flex-1 h-1 rounded-lg appearance-none cursor-pointer"
+                style={{
+                  background: `linear-gradient(to right, ${songs[currentSong]?.color || '#a855f7'} 0%, ${songs[currentSong]?.color || '#a855f7'} ${volume}%, rgba(255,255,255,0.2) ${volume}%, rgba(255,255,255,0.2) 100%)`
+                }}
+              />
+              
+              <span className="text-white text-xs min-w-[2rem] text-center">
+                {volume}
+              </span>
             </div>
           </div>
         )}
