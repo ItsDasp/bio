@@ -88,14 +88,10 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     }
   }, [songs, nextSong, volume]);
   useEffect(() => {
+    const interval = progressInterval.current;
     return () => {
-      const intervalRef = progressInterval.current;
-      if (intervalRef) {
-        clearInterval(intervalRef);
-      }
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
+      if (interval) {
+        clearInterval(interval);
       }
     };
   }, []);

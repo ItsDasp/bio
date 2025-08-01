@@ -2,11 +2,14 @@ import { EmbedGenerator } from '@/components/EmbedGenerator';
 import { Metadata } from 'next';
 import { siteMetadata } from '@/lib/config';
 
-export function generateMetadata({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }): Metadata {
-  const title = Array.isArray(searchParams.title) ? searchParams.title[0] : searchParams.title ?? siteMetadata.title;
-  const description = Array.isArray(searchParams.description) ? searchParams.description[0] : searchParams.description ?? siteMetadata.description;
-  const image = Array.isArray(searchParams.image) ? searchParams.image[0] : searchParams.image ?? siteMetadata.image;
-  const color = Array.isArray(searchParams.color) ? searchParams.color[0] : searchParams.color ?? '#a855f7';
+export async function generateMetadata({ searchParams }: { 
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }> 
+}): Promise<Metadata> {
+  const params = await searchParams;
+  const title = Array.isArray(params.title) ? params.title[0] : params.title ?? siteMetadata.title;
+  const description = Array.isArray(params.description) ? params.description[0] : params.description ?? siteMetadata.description;
+  const image = Array.isArray(params.image) ? params.image[0] : params.image ?? siteMetadata.image;
+  const color = Array.isArray(params.color) ? params.color[0] : params.color ?? '#a855f7';
 
   return {
     metadataBase: new URL('https://xdasp.me'),
