@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { EmbedData } from '@/types';
 import { Copy, ExternalLink } from 'lucide-react';
@@ -17,8 +17,15 @@ export function EmbedGenerator() {
   });
   const [generatedUrl, setGeneratedUrl] = useState('');
   const [copied, setCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const generateUrl = () => {
+    if (!mounted) return;
+    
     const title = embedData.title.trim() || t.defaultEmbedTitle;
     const description = embedData.description.trim() || t.defaultEmbedDescription;
     const params = new URLSearchParams({
@@ -37,6 +44,8 @@ export function EmbedGenerator() {
   };
 
   const copyToClipboard = async () => {
+    if (!mounted || typeof navigator === 'undefined') return;
+    
     try {
       await navigator.clipboard.writeText(generatedUrl);
       setCopied(true);
@@ -44,6 +53,11 @@ export function EmbedGenerator() {
     } catch (err) {
       console.error('Failed to copy text: ', err);
     }
+  };
+
+  const openInNewTab = () => {
+    if (!mounted || typeof window === 'undefined') return;
+    window.open(generatedUrl, '_blank');
   };
 
   return (
@@ -141,7 +155,7 @@ export function EmbedGenerator() {
                       <p className="text-gray-300 text-sm mb-3">
                         {embedData.description || t.defaultEmbedDescription}
                       </p>
-                      {embedData.image && (
+                      {mounted && embedData.image && (
                         <Image
                           src={embedData.image}
                           alt="Preview"
@@ -175,7 +189,7 @@ export function EmbedGenerator() {
                       </button>
                       
                       <button
-                        onClick={() => window.open(generatedUrl, '_blank')}
+                        onClick={openInNewTab}
                         className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-xl transition-colors duration-200 flex items-center justify-center gap-2"
                       >
                         <ExternalLink className="w-4 h-4" />
