@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import "./globals.css";
 import { Header } from '@/components/Header';
 import { MusicProvider } from '@/contexts/MusicContext';
-import { GlobalMiniPlayer } from '@/components/GlobalMiniPlayer';
+// import { GlobalMiniPlayer } from '@/components/GlobalMiniPlayer';
 import { siteMetadata } from '@/lib/config';
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
@@ -71,7 +71,7 @@ export default function RootLayout({
         <MusicProvider>
           <Header />
           {children}
-          <GlobalMiniPlayer />
+          {/* <GlobalMiniPlayer /> */}
         </MusicProvider>
       </body>
     </html>

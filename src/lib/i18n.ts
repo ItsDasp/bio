@@ -3,7 +3,6 @@ import { Translation } from '@/types';
 export const translations: Record<'en' | 'es', Translation> = {
   en: {
     home: 'Home',
-    embed: 'Embed Generator',
     
     name: 'Dasp',
     bio: `✧ 18 ✧
@@ -45,23 +44,6 @@ export const translations: Record<'en' | 'es', Translation> = {
     siteTitle: 'Dasp - Bio',
     siteDescription: 'My links uwu',
     
-    embedTitle: 'Embed Generator',
-    embedDescription: 'Create custom embeds for Discord.',
-    configuration: 'Configuration',
-    customTitle: 'Custom Title',
-    customDescription: 'Custom Description',
-    customImage: 'Image URL',
-    customColor: 'Accent Color',
-    previewTitle: 'Preview',
-    generateUrl: 'Generate URL',
-    copyUrl: 'Copy URL',
-    urlCopied: 'URL copied to clipboard!',
-    titlePlaceholder: 'Custom title',
-    descriptionPlaceholder: 'Custom description',
-    imagePlaceholder: 'https://example.com/image.jpg',
-    defaultEmbedTitle: 'My Custom Link',
-    defaultEmbedDescription: 'Custom description for social media',
-    
     language: 'Language',
     english: 'English',
     spanish: 'Español',
@@ -87,7 +69,6 @@ export const translations: Record<'en' | 'es', Translation> = {
 
   es: {
     home: 'Inicio',
-    embed: 'Generador de Embed',
     
     name: 'Dasp',
     bio: `✧ 18 ✧
@@ -128,23 +109,6 @@ export const translations: Record<'en' | 'es', Translation> = {
     
     siteTitle: 'Dasp - Bio',
     siteDescription: 'Mis enlaces uwu',
-    
-    embedTitle: 'Generador de Embed',
-    embedDescription: 'Crea URLs con previews personalizados para Discord.',
-    configuration: 'Configuración',
-    customTitle: 'Título Personalizado',
-    customDescription: 'Descripción Personalizada',
-    customImage: 'URL de Imagen',
-    customColor: 'Color de Acento',
-    previewTitle: 'Vista Previa',
-    generateUrl: 'Generar URL',
-    copyUrl: 'Copiar URL',
-    urlCopied: '¡URL copiada al portapapeles!',
-    titlePlaceholder: 'Título personalizado',
-    descriptionPlaceholder: 'Descripción personalizada',
-    imagePlaceholder: 'https://ejemplo.com/imagen.jpg',
-    defaultEmbedTitle: 'Mi Enlace Personalizado',
-    defaultEmbedDescription: 'Descripción personalizada para redes sociales',
     
     language: 'Idioma',
     english: 'Inglés',

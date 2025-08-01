@@ -12,13 +12,6 @@ export interface Profile {
   avatar: string;
   links: Link[];
 }
-export interface EmbedData {
-  title: string;
-  description: string;
-  image: string;
-  color: string;
-  url: string;
-}
 export interface Language {
   code: 'en' | 'es';
   name: string;
@@ -34,7 +27,6 @@ export interface Song {
 }
 export interface Translation {
   home: string;
-  embed: string;
   name: string;
   bio: string;
   visitLink: string;
@@ -66,22 +58,6 @@ export interface Translation {
   openFullscreen: string;
   siteTitle: string;
   siteDescription: string;
-  embedTitle: string;
-  embedDescription: string;
-  configuration: string;
-  customTitle: string;
-  customDescription: string;
-  customImage: string;
-  customColor: string;
-  previewTitle: string;
-  generateUrl: string;
-  copyUrl: string;
-  urlCopied: string;
-  defaultEmbedTitle: string;
-  defaultEmbedDescription: string;
-  titlePlaceholder: string;
-  descriptionPlaceholder: string;
-  imagePlaceholder: string;
   language: string;
   english: string;
   spanish: string;

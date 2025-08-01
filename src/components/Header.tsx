@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useLanguage } from '@/hooks/useLanguage';
 import { Settings } from './Settings';
-import { Home, Layers, Settings as SettingsIcon } from 'lucide-react';
+import { Home, Settings as SettingsIcon } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 export function Header() {
@@ -25,17 +25,6 @@ export function Header() {
             >
               <Home className="w-4 h-4" />
               <span className="text-sm font-medium">{t.home}</span>
-            </Link>
-            <Link
-              href="/embed"
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${
-                pathname === '/embed' 
-                  ? 'bg-white/15 text-white shadow-lg backdrop-blur-sm border border-white/20' 
-                  : 'hover:bg-white/10 text-white/80 hover:text-white'
-              }`}
-            >
-              <Layers className="w-4 h-4" />
-              <span className="text-sm font-medium">{t.embed}</span>
             </Link>
           </nav>
           {}
