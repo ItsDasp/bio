@@ -5,7 +5,6 @@ import { EmbedData } from '@/types';
 import { Copy, ExternalLink } from 'lucide-react';
 import AdaptiveBackground from './AdaptiveBackground';
 import Image from 'next/image';
-import Head from 'next/head';
 
 export function EmbedGenerator() {
   const { t } = useLanguage();
@@ -103,7 +102,8 @@ export function EmbedGenerator() {
       ? window.location.origin 
       : 'https://xdasp.me';
       
-    const url = `${baseUrl}/embed?${params.toString()}`;
+    // Usar la nueva ruta dinámica
+    const url = `${baseUrl}/embed/share?${params.toString()}`;
     setGeneratedUrl(url);
   };
 
