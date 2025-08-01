@@ -2,6 +2,7 @@ import { EmbedGenerator } from '@/components/EmbedGenerator';
 import { Metadata } from 'next';
 import { siteMetadata } from '@/lib/config';
 
+// Static metadata for fallback
 export const metadata: Metadata = {
   title: `${siteMetadata.title} - Embed Generator`,
   description: 'Generate custom embeds for social media platforms',

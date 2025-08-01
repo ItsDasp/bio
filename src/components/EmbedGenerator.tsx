@@ -5,6 +5,7 @@ import { EmbedData } from '@/types';
 import { Copy, ExternalLink } from 'lucide-react';
 import AdaptiveBackground from './AdaptiveBackground';
 import Image from 'next/image';
+import Head from 'next/head';
 
 export function EmbedGenerator() {
   const { t } = useLanguage();
@@ -21,7 +22,70 @@ export function EmbedGenerator() {
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    
+    // Read URL parameters on client side
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const title = urlParams.get('title');
+      const description = urlParams.get('description');
+      const image = urlParams.get('image');
+      const color = urlParams.get('color');
+      
+      if (title || description || image || color) {
+        // Update document meta tags dynamically
+        updateMetaTags({
+          title: title || t.defaultEmbedTitle,
+          description: description || t.defaultEmbedDescription,
+          image: image || '',
+          color: color || '#a855f7'
+        });
+      }
+    }
+  }, [t]);
+
+  const updateMetaTags = (data: { title: string; description: string; image: string; color: string }) => {
+    if (typeof document === 'undefined') return;
+
+    // Update page title
+    document.title = data.title;
+    
+    // Update or create meta tags
+    const metaTags = [
+      { property: 'og:title', content: data.title },
+      { property: 'og:description', content: data.description },
+      { property: 'og:type', content: 'website' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: data.title },
+      { name: 'twitter:description', content: data.description },
+      { name: 'description', content: data.description },
+      { name: 'theme-color', content: data.color }
+    ];
+
+    if (data.image) {
+      metaTags.push(
+        { property: 'og:image', content: data.image },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { name: 'twitter:image', content: data.image }
+      );
+    }
+
+    metaTags.forEach(tag => {
+      const existingTag = document.querySelector(
+        tag.property ? `meta[property="${tag.property}"]` : `meta[name="${tag.name}"]`
+      );
+      
+      if (existingTag) {
+        existingTag.setAttribute('content', tag.content);
+      } else {
+        const newTag = document.createElement('meta');
+        if (tag.property) newTag.setAttribute('property', tag.property);
+        if (tag.name) newTag.setAttribute('name', tag.name);
+        newTag.setAttribute('content', tag.content);
+        document.head.appendChild(newTag);
+      }
+    });
+  };
 
   const generateUrl = () => {
     if (!mounted) return;
