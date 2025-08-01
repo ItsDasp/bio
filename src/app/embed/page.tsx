@@ -2,20 +2,20 @@ import { EmbedGenerator } from '@/components/EmbedGenerator';
 import { Metadata } from 'next';
 import { siteMetadata } from '@/lib/config';
 
-const siteUrl = "https://xdasp.me";
+const siteUrl = 'https://xdasp.me';
 
-export async function generateMetadata({
+export function generateMetadata({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
-}): Promise<Metadata> {
+}): Metadata {
   const title = Array.isArray(searchParams.title) ? searchParams.title[0] : searchParams.title || siteMetadata.title;
   const description = Array.isArray(searchParams.description) ? searchParams.description[0] : searchParams.description || siteMetadata.description;
   const image = Array.isArray(searchParams.image) ? searchParams.image[0] : searchParams.image || siteMetadata.image;
   const color = Array.isArray(searchParams.color) ? searchParams.color[0] : searchParams.color || '#a855f7';
 
   return {
-    metadataBase: new URL(siteUrl),  // Aquí se define la base para URLs absolutas
+    metadataBase: new URL(siteUrl),
     title,
     description,
     openGraph: {
