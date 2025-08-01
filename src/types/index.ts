@@ -24,6 +24,14 @@ export interface Language {
   name: string;
   flag: string;
 }
+export interface Song {
+  id: string;
+  title: string;
+  artist: string;
+  cover: string;
+  url?: string;
+  duration?: number;
+}
 export interface Translation {
   home: string;
   embed: string;
