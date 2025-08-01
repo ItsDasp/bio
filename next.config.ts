@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
   
   // Configure base path for GitHub Pages
   basePath: isGitHubPages ? '/bio' : '',
-  assetPrefix: isGitHubPages ? '/bio/' : '',
+  assetPrefix: isGitHubPages ? '/bio' : '',
   
   // Ensure trailing slash consistency
   trailingSlash: true,
