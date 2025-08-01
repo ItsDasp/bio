@@ -113,7 +113,7 @@ export function Settings({ isOpen, onClose }: SettingsProps) {
               <div className="flex items-center justify-between p-3 bg-white/5 rounded-xl border border-white/10">
                 <div>
                   <p className="text-white font-medium">{t.animatedBackground}</p>
-                  <p className="text-white/60 text-xs">Disable for seizure sensitivity</p>
+                  <p className="text-white/60 text-xs">{t.disableForSeizureSensitivity}</p>
                 </div>
                 <button
                   onClick={handleAnimatedBackgroundToggle}

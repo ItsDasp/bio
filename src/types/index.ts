@@ -35,6 +35,7 @@ export interface Translation {
   findMeOnPlatforms: string;
   settings: string;
   animatedBackground: string;
+  disableForSeizureSensitivity: string;
   typewriterEffect: string;
   animatedBioText: string;
   close: string;

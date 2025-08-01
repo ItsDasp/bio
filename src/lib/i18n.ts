@@ -16,6 +16,7 @@ export const translations: Record<'en' | 'es', Translation> = {
     
     settings: 'Settings',
     animatedBackground: 'Animated Background',
+    disableForSeizureSensitivity: 'Disable for seizure sensitivity',
     typewriterEffect: 'Typewriter Effect',
     animatedBioText: 'Animated bio text',
     close: 'Close',
@@ -82,6 +83,7 @@ export const translations: Record<'en' | 'es', Translation> = {
     
     settings: 'Configuración',
     animatedBackground: 'Fondo Animado',
+    disableForSeizureSensitivity: 'Desactivar por sensibilidad a convulsiones',
     typewriterEffect: 'Efecto Typewriter',
     animatedBioText: 'Texto bio animado',
     close: 'Cerrar',
