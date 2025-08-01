@@ -27,7 +27,11 @@ export function EmbedGenerator() {
       image: embedData.image,
       color: embedData.color,
     });
-    const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+    
+    const baseUrl = typeof window !== 'undefined' 
+      ? window.location.origin 
+      : 'https://xdasp.me';
+      
     const url = `${baseUrl}/embed?${params.toString()}`;
     setGeneratedUrl(url);
   };
@@ -137,9 +141,9 @@ export function EmbedGenerator() {
                       <p className="text-gray-300 text-sm mb-3">
                         {embedData.description || t.defaultEmbedDescription}
                       </p>
-                      {(embedData.image) && (
+                      {embedData.image && (
                         <Image
-                          src={embedData.image || '/avatar.jpg'}
+                          src={embedData.image}
                           alt="Preview"
                           width={400}
                           height={200}

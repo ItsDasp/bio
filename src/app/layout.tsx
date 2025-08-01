@@ -7,6 +7,7 @@ import { GlobalMiniPlayer } from '@/components/GlobalMiniPlayer';
 import { siteMetadata } from '@/lib/config';
 const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
+  metadataBase: new URL('https://xdasp.me'),
   title: siteMetadata.title,
   description: siteMetadata.description,
   keywords: siteMetadata.keywords,

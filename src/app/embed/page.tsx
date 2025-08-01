@@ -12,7 +12,6 @@ export async function generateMetadata({ searchParams }: {
   const color = Array.isArray(params.color) ? params.color[0] : params.color ?? '#a855f7';
 
   return {
-    metadataBase: new URL('https://xdasp.me'),
     title,
     description,
     openGraph: {
