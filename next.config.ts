@@ -11,10 +11,6 @@ const nextConfig: NextConfig = {
     unoptimized: isGitHubPages,
   },
   
-  // Configure base path for GitHub Pages
-  basePath: isGitHubPages ? '/bio' : '',
-  assetPrefix: isGitHubPages ? '/bio' : '',
-  
   // Ensure trailing slash consistency
   trailingSlash: true,
   
