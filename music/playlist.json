@@ -1,0 +1,35 @@
+[
+  {
+    "id": "1",
+    "title": "I AM",
+    "artist": "MILO J",
+    "duration": "03:11",
+    "file": "/music/milo-j-i-am.mp3",
+    "cover": "/music/covers/milo-j-i-am.jpeg",
+    "originalUrl": "https://open.spotify.com/track/3e5gPPx7MTGoYffXH70Tqf?si=d5977a5f4fef4bc3",
+    "color": "#8b5cf6"
+  },
+
+  {
+    "id": "2",
+    "title": "Kirby OST",
+    "artist": "Nintendo",
+    "duration": "25:54",
+    "file": "/music/kirby-ost.mp3",
+    "cover": "/music/covers/kirby-ost.jpg",
+    "originalUrl": "",
+    "color": "#f472b6"
+  },
+
+  {
+    "id": "3",
+    "title": "Sextape",
+    "artist": "Deftones",
+    "duration": "04:01",
+    "file": "/music/deftones-sextape.mp3",
+    "cover": "/music/covers/deftones-sextape.jpg",
+    "originalUrl": "https://open.spotify.com/track/1EryAkZ0VHstC6haIxVBiE?si=f779ccb98a4440ea",
+    "color": "#f59e0b"
+
+  }
+]
