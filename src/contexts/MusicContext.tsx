@@ -1,5 +1,5 @@
 'use client';
-import { createContext, useContext, useState, useRef, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useRef, useEffect, useCallback, ReactNode } from 'react';
 import { useDocumentTitle } from '@/hooks/useDocumentTitle';
 interface Song {
   id: string;
@@ -47,6 +47,27 @@ export function MusicProvider({ children }: { children: ReactNode }) {
     currentSong: songs[currentSong] || null,
     defaultTitle: 'Dasp - Bio'
   });
+
+  const playSong = useCallback((index: number) => {
+    if (!audioRef.current || songs.length === 0) return;
+    setCurrentSong(index);
+    audioRef.current.src = songs[index].file;
+    audioRef.current.currentTime = 0;
+    if (isPlaying) {
+      audioRef.current.play().catch(console.error);
+    }
+    setShowMiniPlayer(true);
+  }, [songs, isPlaying]);
+
+  const nextSong = useCallback(() => {
+    if (songs.length === 0) return;
+    const nextIndex = (currentSong + 1) % songs.length;
+    playSong(nextIndex);
+    if (isPlaying && audioRef.current) {
+      audioRef.current.play().catch(console.error);
+    }
+  }, [songs.length, currentSong, playSong, isPlaying]);
+
   useEffect(() => {
     if (songs.length > 0 && !audioRef.current) {
       audioRef.current = new Audio();
@@ -65,11 +86,12 @@ export function MusicProvider({ children }: { children: ReactNode }) {
         }
       });
     }
-  }, [songs]);
+  }, [songs, nextSong, volume]);
   useEffect(() => {
     return () => {
-      if (progressInterval.current) {
-        clearInterval(progressInterval.current);
+      const intervalRef = progressInterval.current;
+      if (intervalRef) {
+        clearInterval(intervalRef);
       }
       if (audioRef.current) {
         audioRef.current.pause();
@@ -94,24 +116,7 @@ export function MusicProvider({ children }: { children: ReactNode }) {
       setShowMiniPlayer(true);
     }
   };
-  const playSong = (index: number) => {
-    if (!audioRef.current || songs.length === 0) return;
-    setCurrentSong(index);
-    audioRef.current.src = songs[index].file;
-    audioRef.current.currentTime = 0;
-    if (isPlaying) {
-      audioRef.current.play().catch(console.error);
-    }
-    setShowMiniPlayer(true);
-  };
-  const nextSong = () => {
-    if (songs.length === 0) return;
-    const nextIndex = (currentSong + 1) % songs.length;
-    playSong(nextIndex);
-    if (isPlaying && audioRef.current) {
-      audioRef.current.play().catch(console.error);
-    }
-  };
+
   const previousSong = () => {
     if (songs.length === 0) return;
     const prevIndex = currentSong === 0 ? songs.length - 1 : currentSong - 1;
