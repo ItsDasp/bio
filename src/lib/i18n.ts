@@ -34,12 +34,13 @@ export const translations: Record<'en' | 'es', Translation> = {
     play: 'Play',
     pause: 'Pause',
     songs: 'songs',
+    clickToClose: 'Click anywhere to close',
+    openFullscreen: 'Open fullscreen view',
+
     previous: 'Previous',
     next: 'Next',
     minimize: 'Minimize',
     maximize: 'Maximize',
-    clickToClose: 'Click anywhere to close',
-    openFullscreen: 'Open fullscreen view',
     
     siteTitle: 'Dasp - Bio',
     siteDescription: 'My links uwu',
@@ -117,12 +118,13 @@ export const translations: Record<'en' | 'es', Translation> = {
     play: 'Reproducir',
     pause: 'Pausar',
     songs: 'canciones',
+    clickToClose: 'Haz clic en cualquier lugar para cerrar',
+    openFullscreen: 'Abrir vista de pantalla completa',
+
     previous: 'Anterior',
     next: 'Siguiente',
     minimize: 'Minimizar',
     maximize: 'Maximizar',
-    clickToClose: 'Haz clic en cualquier lugar para cerrar',
-    openFullscreen: 'Abrir vista de pantalla completa',
     
     siteTitle: 'Dasp - Bio',
     siteDescription: 'Mis enlaces uwu',
@@ -167,6 +169,7 @@ export const translations: Record<'en' | 'es', Translation> = {
     }
   }
 };
+
 
 export const languages = [
   { code: 'en' as const, name: 'English', flag: '🇺🇸' },
