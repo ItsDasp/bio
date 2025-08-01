@@ -59,6 +59,10 @@ export interface Translation {
   pause: string;
   songs: string;
   clickToClose: string;
+  previous: string; 
+  next: string;   
+  minimize: string;   
+  maximize: string;
   openFullscreen: string;
   siteTitle: string;
   siteDescription: string;

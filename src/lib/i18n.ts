@@ -34,6 +34,10 @@ export const translations: Record<'en' | 'es', Translation> = {
     play: 'Play',
     pause: 'Pause',
     songs: 'songs',
+    previous: 'Previous',
+    next: 'Next',
+    minimize: 'Minimize',
+    maximize: 'Maximize',
     clickToClose: 'Click anywhere to close',
     openFullscreen: 'Open fullscreen view',
     
@@ -113,6 +117,10 @@ export const translations: Record<'en' | 'es', Translation> = {
     play: 'Reproducir',
     pause: 'Pausar',
     songs: 'canciones',
+    previous: 'Anterior',
+    next: 'Siguiente',
+    minimize: 'Minimizar',
+    maximize: 'Maximizar',
     clickToClose: 'Haz clic en cualquier lugar para cerrar',
     openFullscreen: 'Abrir vista de pantalla completa',
     
