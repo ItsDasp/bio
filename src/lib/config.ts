@@ -41,7 +41,7 @@ export const profileData: Profile = {
     {
       id: '4',
       title: 'Email',
-      url: 'mailto:contact@xdasp.me',
+      url: 'mailto:contact@me@xdasp.me',
       icon: 'Mail',
       color: '#EA4335',
       isActive: true,
@@ -66,7 +66,7 @@ export const profileData: Profile = {
 };
 export const siteMetadata = {
   title: 'Dasp - Bio',
-  description: 'Mis enlaces uwu',
+  description: 'Dasp — Desarrollador Node.js de Chile. Proyectos, portfolio, redes y música en un solo lugar.',
   url: 'https://xdasp.me/',
   image: '/avatar.jpg',
   author: 'Dasp',
