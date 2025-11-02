@@ -3,6 +3,7 @@ import { Translation } from '@/types';
 export const translations: Record<'en' | 'es', Translation> = {
   en: {
     home: 'Home',
+  blog: 'Blog',
     
     name: 'Dasp',
     bio: `✧ 19 ✧
@@ -76,6 +77,7 @@ export const translations: Record<'en' | 'es', Translation> = {
 
   es: {
     home: 'Inicio',
+  blog: 'Blog',
     
     name: 'Dasp',
     bio: `✧ 19 ✧
@@ -92,7 +94,6 @@ export const translations: Record<'en' | 'es', Translation> = {
   features: 'Características',
   moderation: 'Moderación',
   utilities: 'Utilidades',
-    
     settings: 'Configuración',
     animatedBackground: 'Fondo Animado',
     disableForSeizureSensitivity: 'Desactivar por sensibilidad a convulsiones',

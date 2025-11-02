@@ -27,6 +27,7 @@ export interface Song {
 }
 export interface Translation {
   home: string;
+  blog: string;
   name: string;
   bio: string;
   visitLink: string;
