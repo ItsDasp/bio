@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
   // Disable image optimization for static export
   images: {
     unoptimized: isGitHubPages,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.imgur.com',
+        pathname: '/**',
+      },
+    ],
   },
   
   // Ensure trailing slash consistency

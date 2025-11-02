@@ -30,9 +30,15 @@ export interface Translation {
   name: string;
   bio: string;
   visitLink: string;
+  discordBotPromo: string;
   copyLink: string;
   connectWithMe: string;
   findMeOnPlatforms: string;
+  projects: string;
+  visitWebsite: string;
+  features: string;
+  moderation: string;
+  utilities: string;
   settings: string;
   animatedBackground: string;
   disableForSeizureSensitivity: string;

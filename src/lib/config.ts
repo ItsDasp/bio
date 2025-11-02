@@ -7,6 +7,14 @@ export const profileData: Profile = {
   avatar: '/avatar.jpg',
   links: [
     {
+      id: '0',
+      title: 'Senko Bot',
+      url: 'https://senko.nekomera.xyz',
+      icon: 'https://i.imgur.com/JkubEXf.jpeg',
+      color: '#ffb6c1',
+      isActive: true,
+    },
+    {
       id: '1',
       title: 'GitHub',
       url: 'https://github.com/itsdasp',
@@ -33,7 +41,7 @@ export const profileData: Profile = {
     {
       id: '4',
       title: 'Email',
-      url: 'mailto:contact@me@xdasp.me',
+      url: 'mailto:contact@xdasp.me',
       icon: 'Mail',
       color: '#EA4335',
       isActive: true,

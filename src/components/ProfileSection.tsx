@@ -19,7 +19,7 @@ interface Song {
 }
 export function ProfileSection() {
   const { t } = useLanguage();
-  const activeLinks = profileData.links.filter(link => link.isActive);
+  const activeLinks = profileData.links.filter(link => link.isActive && link.id !== '0');
   const [songs, setSongs] = useState<Song[]>([]);
   useEffect(() => {
     fetch('/music/playlist.json')

@@ -5,14 +5,20 @@ export const translations: Record<'en' | 'es', Translation> = {
     home: 'Home',
     
     name: 'Dasp',
-    bio: `✧ 18 ✧
+    bio: `✧ 19 ✧
 ✧ Node.js developer ✧
 ✧ 🇨🇱 ✧`,
 
     visitLink: 'Visit Link',
+  discordBotPromo: 'Looking for a Discord bot? Try Senko',
     copyLink: 'Copy Link',
     connectWithMe: 'Connect with me',
     findMeOnPlatforms: 'Find me on these platforms',
+  projects: 'Projects',
+  visitWebsite: 'Visit website',
+  features: 'Features',
+  moderation: 'Moderation',
+  utilities: 'Utilities',
     
     settings: 'Settings',
     animatedBackground: 'Animated Background',
@@ -72,14 +78,20 @@ export const translations: Record<'en' | 'es', Translation> = {
     home: 'Inicio',
     
     name: 'Dasp',
-    bio: `✧ 18 ✧
+    bio: `✧ 19 ✧
 ✧ Node.js developer ✧
 ✧ 🇨🇱 ✧`,
 
     visitLink: 'Visitar Enlace',
+  discordBotPromo: '¿Buscas un bot de Discord? prueba Senko',
     copyLink: 'Copiar Enlace',
     connectWithMe: 'Conecta conmigo',
     findMeOnPlatforms: 'Encuéntrame en estas plataformas',
+  projects: 'Proyectos',
+  visitWebsite: 'Visitar sitio',
+  features: 'Características',
+  moderation: 'Moderación',
+  utilities: 'Utilidades',
     
     settings: 'Configuración',
     animatedBackground: 'Fondo Animado',
