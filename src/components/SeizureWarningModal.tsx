@@ -13,7 +13,13 @@ export default function SeizureWarningModal({ isVisible, onConfirm, onCancel }: 
       {}
       <div className="fixed inset-0 bg-black z-40" />
       {}
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div
+        className="fixed inset-0 z-50 flex items-center justify-center p-4"
+        data-nosnippet
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="seizure-warning-title"
+      >
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl border-2 border-red-500 max-w-md w-full p-6 animate-scale-in">
           <div className="text-center">
             {}
@@ -22,7 +28,7 @@ export default function SeizureWarningModal({ isVisible, onConfirm, onCancel }: 
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h2 className="text-xl font-bold text-red-600 dark:text-red-400 mb-4">
+            <h2 id="seizure-warning-title" className="text-xl font-bold text-red-600 dark:text-red-400 mb-4">
               {t.accessibility.seizureWarning.title}
             </h2>
             <p className="text-gray-700 dark:text-gray-300 mb-6 text-sm leading-relaxed font-medium">
