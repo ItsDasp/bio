@@ -29,7 +29,7 @@ async function BlogPostContent({ slug }: { slug: string }) {
     <div className="relative z-10 py-24 px-6">
       <div className="w-full max-w-3xl mx-auto space-y-6">
         <div className="backdrop-blur-2xl bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl">
-          <BlogArticle title={data.meta.title} description={data.meta.description} localized={data.meta.localized as any} esHtml={esHtml} enHtml={enHtml} />
+          <BlogArticle title={data.meta.title} description={data.meta.description} localized={data.meta.localized} esHtml={esHtml} enHtml={enHtml} />
         </div>
       </div>
     </div>
