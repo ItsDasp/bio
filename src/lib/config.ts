@@ -66,7 +66,7 @@ export const profileData: Profile = {
 };
 export const siteMetadata = {
   title: 'Dasp - Bio',
-  description: 'Dasp — Desarrollador Node.js de Chile. Proyectos, portfolio, redes y música en un solo lugar.',
+  description: 'Mis enlaces uwu. Pa mis stalkers uwu',
   url: 'https://xdasp.me/',
   image: '/avatar.jpg',
   author: 'Dasp',
