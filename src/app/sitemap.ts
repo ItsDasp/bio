@@ -1,6 +1,8 @@
 import { siteMetadata } from '@/lib/config';
 import { getAllPosts } from '@/lib/blog';
 
+export const dynamic = 'force-static';
+
 export default function sitemap() {
   const base = siteMetadata.url.endsWith('/') ? siteMetadata.url : siteMetadata.url + '/';
   const posts = getAllPosts();
