@@ -1,0 +1,61 @@
+1:"$Sreact.fragment"
+2:I[6032,["874","static/chunks/874-88e24f0e286df0b2.js","177","static/chunks/app/layout-1eb6374adad8bf0e.js"],"MusicProvider"]
+3:I[6985,["874","static/chunks/874-88e24f0e286df0b2.js","177","static/chunks/app/layout-1eb6374adad8bf0e.js"],"Header"]
+4:I[7555,[],""]
+5:I[1295,[],""]
+7:I[9665,[],"OutletBoundary"]
+9:I[4911,[],"AsyncMetadataOutlet"]
+b:I[9665,[],"ViewportBoundary"]
+d:I[9665,[],"MetadataBoundary"]
+e:"$Sreact.suspense"
+10:I[8393,[],""]
+:HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/d5edee6af1606783.css","style"]
+0:{"P":null,"b":"n4hhtbthEPepzGWrJ0_td","p":"","c":["","blog","aboutme",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","aboutme","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/d5edee6af1606783.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"es","suppressHydrationWarning":true,"children":["$","body",null,{"className":"__className_f367f3 antialiased","children":["$","$L2",null,{"children":[["$","$L3",null,{}],["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]}]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","aboutme","d"],["$","$1","c",{"children":[null,["$","$L4",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L5",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L6",null,["$","$L7",null,{"children":["$L8",["$","$L9",null,{"promise":"$@a"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$Lb",null,{"children":"$Lc"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$Ld",null,{"children":["$","div",null,{"hidden":true,"children":["$","$e",null,{"fallback":null,"children":"$Lf"}]}]}]]}],false]],"m":"$undefined","G":["$10",[]],"s":false,"S":true}
+11:I[9408,["766","static/chunks/766-1cd631173aa77bb4.js","953","static/chunks/app/blog/%5Bslug%5D/page-74ee0d9b477439e3.js"],"default"]
+6:["$","$L11",null,{"children":"$L12"}]
+13:I[9002,["766","static/chunks/766-1cd631173aa77bb4.js","953","static/chunks/app/blog/%5Bslug%5D/page-74ee0d9b477439e3.js"],"default"]
+14:T898,<h1>Sobre mí</h1>
+<p>Tengo 19 años y soy de Chile.<br>
+Estoy en segundo año de Ingeniería en Informática y llevo ya unos 7 u 8 años metido en este mundillo de la programación. Empecé por curiosidad, queriendo entender cómo funcionaban las cosas, y al final terminé metido en esto de por vida (supongo).</p>
+<p>Me gusta crear cosas, romperlas, entender por qué fallan y volver a armarlas mejor… o rendirme un rato después de horas y decir <em>“ya fue, lo que quiera el de arriba”</em>. No sé si es paciencia o terquedad, pero me cuesta dejar algo sin resolver.</p>
+<p>A veces parezco conformista, como si me diera igual todo, pero en realidad es que aprendí a soltar un poco. No todo puede salir perfecto, y eso está bien (aunque me hierva la cabeza cuando algo no anda).</p>
+<p>Me gusta trabajar en proyectos como <strong>páginas web</strong>, <strong>bots de Discord</strong> y <strong>REST APIs</strong>.<br>
+Y sí, esta misma página también es un proyecto mío. Aunque… bueno, <strong>la IA me dio una mano en algunas cosas</strong>. Qué se le va a hacer, si está ahí, ¿por qué no usarla?</p>
+<p>Mis colores favoritos son el morado, el azul y el rojo. Cada uno me transmite algo distinto, y me gusta pensar que juntos tienen cierto equilibrio.<br>
+En mis ratos libres suelo jugar <strong>Team Fortress 2</strong>, un clásico que nunca falta. Si te da curiosidad o quieres agregarme, dejo mi perfil:<br>
+👉 <a href="https://steamcommunity.com/id/daspx/">steamcommunity.com/id/daspx</a></p>
+<p>Hablo español e inglés, lo que me ha servido para aprender, colaborar y meterme en proyectos de todo tipo. No busco ser “el mejor”, solo seguir mejorando, aprendiendo y disfrutando el proceso, incluso cuando no sale como esperaba.</p>
+<p>Supongo que programar, al final, no es solo escribir código. Es una forma de intentar entender el mundo… incluso cuando el mundo no tiene ganas de ser entendido.</p>
+<div align="center" style="margin-top: 2rem; margin-bottom: 2rem;">
+  <video src="/savetheworld.mp4" autoplay loop playsinline 
+    style="border-radius: 12px; max-width: 100%; height: auto;">
+    Tu navegador no soporta videos HTML5.
+  </video>
+</div>
+<hr>
+15:T88f,<h1>About Me</h1>
+<p>I’m 19 and from Chile.<br>
+I’m currently in my second year of Computer Engineering, and I’ve been into programming for around seven or eight years now. It all started with curiosity, trying to figure out how things worked, and somehow it became something I can’t really imagine my life without.</p>
+<p>I like creating stuff, breaking it, fixing it, and trying again… until I eventually give up and say <em>“whatever, let the universe handle it.”</em> Not sure if that’s persistence or just plain stubbornness, but I can’t leave things broken for too long.</p>
+<p>Sometimes I might seem a bit too chill, almost conformist, but honestly, I’ve just learned to let go a bit. Not everything has to be perfect, and that’s fine (even if it drives me crazy when things don’t work).</p>
+<p>I enjoy working on <strong>websites</strong>, <strong>Discord bots</strong>, and <strong>REST APIs</strong>.<br>
+And yeah, this very website is one of my projects too. Though… I’ll admit, <strong>AI helped me with a few things</strong>. I mean, come on —if it’s there, might as well use it, right?</p>
+<p>My favorite colors are purple, blue, and red. Each one gives me a different vibe, and I kinda like how they balance each other out.<br>
+In my free time I play <strong>Team Fortress 2</strong>, a classic I always end up coming back to.<br>
+If you’re curious or wanna add me, here’s my Steam:<br>
+👉 <a href="https://steamcommunity.com/id/daspx/">steamcommunity.com/id/daspx</a></p>
+<p>I speak both Spanish and English, which has helped me learn, collaborate, and join different kinds of projects. I’m not trying to be “the best.” I just want to keep learning, improving, and enjoying the process —even when it gets messy.</p>
+<p>I guess, in the end, programming isn’t just about code. It’s about trying to make sense of things, even when they clearly refuse to make sense.</p>
+<div align="center" style="margin-top: 2rem; margin-bottom: 2rem;">
+  <video src="/savetheworld.mp4" autoplay loop playsinline 
+    style="border-radius: 12px; max-width: 100%; height: auto;">
+    Your browser does not support HTML5 video.
+  </video>
+</div>
+12:["$","div",null,{"className":"relative z-10 py-24 px-6","children":["$","div",null,{"className":"w-full max-w-3xl mx-auto space-y-6","children":["$","div",null,{"className":"backdrop-blur-2xl bg-white/10 border border-white/20 rounded-3xl p-8 shadow-2xl","children":["$","$L13",null,{"title":"Sobre mí","description":"Un poco mas de info sobre mi","localized":{"es":{"title":"Sobre mí","description":"Un poco mas de info sobre mi"},"en":{"title":"About Me","description":"A little bit more of info about me"}},"esHtml":"$14","enHtml":"$15"}]}]}]}]
+c:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+8:null
+16:I[8175,[],"IconMark"]
+a:{"metadata":[["$","title","0",{"children":"Sobre mí"}],["$","meta","1",{"name":"description","content":"Un poco mas de info sobre mi"}],["$","meta","2",{"name":"author","content":"Dasp"}],["$","meta","3",{"name":"keywords","content":"dasp, desarrollador, full stack, ui ux, portfolio, contacto, developer, nodejs"}],["$","meta","4",{"name":"creator","content":"Dasp"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"name":"google-site-verification","content":"tu-google-verification-code"}],["$","meta","8",{"property":"og:title","content":"Dasp - Bio"}],["$","meta","9",{"property":"og:description","content":"Mis enlaces uwu. Pa mis stalkers uwu"}],["$","meta","10",{"property":"og:url","content":"https://xdasp.me/"}],["$","meta","11",{"property":"og:site_name","content":"Dasp - Bio"}],["$","meta","12",{"property":"og:locale","content":"es_ES"}],["$","meta","13",{"property":"og:image","content":"https://xdasp.me/avatar.jpg"}],["$","meta","14",{"property":"og:image:width","content":"1200"}],["$","meta","15",{"property":"og:image:height","content":"630"}],["$","meta","16",{"property":"og:image:alt","content":"Dasp - Bio"}],["$","meta","17",{"property":"og:type","content":"website"}],["$","meta","18",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","19",{"name":"twitter:creator","content":"@xdasp_"}],["$","meta","20",{"name":"twitter:title","content":"Dasp - Bio"}],["$","meta","21",{"name":"twitter:description","content":"Mis enlaces uwu. Pa mis stalkers uwu"}],["$","meta","22",{"name":"twitter:image","content":"https://xdasp.me/avatar.jpg"}],["$","link","23",{"rel":"shortcut icon","href":"/avatar.jpeg"}],["$","link","24",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"640x640"}],["$","link","25",{"rel":"icon","href":"/avatar.jpg","type":"image/jpeg"}],["$","link","26",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon"}],["$","link","27",{"rel":"apple-touch-icon","href":"/avatar.jpeg"}],["$","$L16","28",{}]],"error":null,"digest":"$undefined"}
+f:"$a:metadata"
